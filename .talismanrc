@@ -1,8 +1,10 @@
 fileignoreconfig:
 - filename: app/src/main/res/xml/backup_rules.xml
   checksum: f301105c8a8ea151b3f18ed0a7c5d6e60eb9f2d07010daa12117b1fbe72e56a0
-- filename: .idea/deploymentTargetDropDown.xml
-  checksum: 90213a8dd6cd970cae2ef7c6fdb0068ad6cf7b4f2e36cc8180edaba8d4048315
+- filename: app/src/androidTest/java/io/github/fayaz07/tdd/TestUtils.kt
+  checksum: 634814dfadfba19a5b56fbfce719e69f86ec8541ff16184d856f6bab9ff457e3
 - filename: .idea/androidTestResultsUserPreferences.xml
-  checksum: 057d45e68898d25af9e5c64c48c13fd243402e4a6b6d97b3613155dd9b5ef303
+  checksum: 517e48965535df95f0b69f62b440fbbc1d46ccbe40fc89bf25c3f8b41d15ca63
+- filename: .idea/deploymentTargetDropDown.xml
+  checksum: 3d4ece60c30eb524e5d657c8b624db22e88d457f114922fbcaf05a9b1a6dc63e
 version: ""

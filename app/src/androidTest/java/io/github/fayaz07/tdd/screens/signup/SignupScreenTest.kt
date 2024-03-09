@@ -1,5 +1,8 @@
 package io.github.fayaz07.tdd.screens.signup
 
+import androidx.compose.ui.semantics.SemanticsPropertyKey
+import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertHasNoClickAction
 import androidx.compose.ui.test.assertIsDisplayed
@@ -7,9 +10,15 @@ import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsFocused
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onChild
+import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onParent
+import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performTextInput
+import io.github.fayaz07.tdd.R
+import io.github.fayaz07.tdd.TestUtils.matchesDrawable
 import io.github.fayaz07.tdd.ui.theme.TddTheme
 import io.github.fayaz07.testtags.screens.SignupScreenTestTags
 import org.junit.Before
@@ -41,6 +50,15 @@ class SignupScreenTest {
         composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
             .assertIsDisplayed()
             .assertIsEnabled()
+
+        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
+            .performTextInput("Mohammad Fayaz")
+
+        composeTestRule.onNodeWithText("Mohammad Fayaz")
+            .assertIsDisplayed()
+            .assertIsFocused()
+
+        composeTestRule.onNode(matchesDrawable(R.drawable.icon_person))
     }
 
     @Test
@@ -49,6 +67,13 @@ class SignupScreenTest {
         composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_EMAIL)
             .assertIsDisplayed()
             .assertIsEnabled()
+
+        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_EMAIL)
+            .performTextInput("fayaz@fayaz.com")
+
+        composeTestRule.onNodeWithText("fayaz@fayaz.com")
+            .assertIsDisplayed()
+            .assertIsFocused()
     }
 
     @Test
@@ -88,22 +113,6 @@ class SignupScreenTest {
 
     @Test
     fun on_signup_screen_user_can_perform_signup_operations() {
-        // name field tag
-        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
-            .performTextInput("Mohammad Fayaz")
-
-        composeTestRule.onNodeWithText("Mohammad Fayaz")
-            .assertIsDisplayed()
-            .assertIsFocused()
-
-        // email field tag
-        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_EMAIL)
-            .performTextInput("fayaz@fayaz.com")
-
-        composeTestRule.onNodeWithText("fayaz@fayaz.com")
-            .assertIsDisplayed()
-            .assertIsFocused()
-
         // password field tag
         composeTestRule.onNodeWithTag("field-password")
             .performTextInput("Fayaz@123")

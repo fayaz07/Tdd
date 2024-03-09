@@ -21,6 +21,9 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="when_signup_screen_is_launched_should_show_email_field()">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
