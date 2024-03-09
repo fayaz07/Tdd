@@ -1,4 +1,8 @@
 fileignoreconfig:
 - filename: app/src/main/res/xml/backup_rules.xml
   checksum: f301105c8a8ea151b3f18ed0a7c5d6e60eb9f2d07010daa12117b1fbe72e56a0
+- filename: .idea/deploymentTargetDropDown.xml
+  checksum: 90213a8dd6cd970cae2ef7c6fdb0068ad6cf7b4f2e36cc8180edaba8d4048315
+- filename: .idea/androidTestResultsUserPreferences.xml
+  checksum: 9e8b61823764d4a0dfdaa097ba48cbf53ab8f871cfc4efbd7a26e8f11369be95
 version: ""

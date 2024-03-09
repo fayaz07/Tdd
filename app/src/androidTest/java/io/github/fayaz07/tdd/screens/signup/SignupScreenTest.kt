@@ -1,4 +1,4 @@
-package io.github.fayaz07.tdd.screens.login
+package io.github.fayaz07.tdd.screens.signup
 
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertHasNoClickAction
