@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tdd</string>
+    <string name="app_name_header">Tdd App</string>
 </resources>

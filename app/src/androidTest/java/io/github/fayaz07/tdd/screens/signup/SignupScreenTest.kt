@@ -11,6 +11,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performTextInput
 import io.github.fayaz07.tdd.ui.theme.TddTheme
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -18,43 +19,65 @@ class SignupScreenTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
-    @Test
-    fun when_signup_screen_is_launched_should_show_basic_signup_elements() {
+    @Before
+    fun setup() {
         composeTestRule.setContent {
             TddTheme {
                 SignupScreen()
             }
         }
+    }
+
+    @Test
+    fun when_signup_screen_is_launched_should_show_header_text() {
         // check if app name text exists
         composeTestRule.onNodeWithText("Tdd App").assertIsDisplayed()
+    }
 
+    @Test
+    fun when_signup_screen_is_launched_should_show_name_field() {
         // name field tag
         composeTestRule.onNodeWithTag("field-name")
             .assertIsDisplayed()
             .assertIsEnabled()
+    }
 
+    @Test
+    fun when_signup_screen_is_launched_should_show_email_field() {
         // email field tag
         composeTestRule.onNodeWithTag("field-email")
             .assertIsDisplayed()
             .assertIsEnabled()
+    }
 
+    @Test
+    fun when_signup_screen_is_launched_should_show_password_field() {
         // password field tag
         composeTestRule.onNodeWithTag("field-password")
             .assertIsDisplayed()
             .assertIsEnabled()
+    }
 
+    @Test
+    fun when_signup_screen_is_launched_should_show_password_fields_suffix_icon() {
         // password field should have a suffix eye icon
         composeTestRule.onNodeWithTag("field-password-suffix")
             .assertIsDisplayed()
             .assertIsEnabled()
             .assertHasClickAction()
+    }
 
+    @Test
+    fun when_signup_screen_is_launched_should_show_password_fields_prefix_icon() {
         // password field should have a prefix lock icon
         composeTestRule.onNodeWithTag("field-password-prefix")
             .assertIsDisplayed()
             .assertIsEnabled()
             .assertHasNoClickAction()
+    }
 
+    @Test
+    fun when_signup_screen_is_launched_should_show_signup_button() {
         // signup button
         composeTestRule.onNodeWithTag("btn-signup")
             .assertIsDisplayed()
@@ -64,12 +87,6 @@ class SignupScreenTest {
 
     @Test
     fun on_signup_screen_user_can_perform_signup_operations() {
-        composeTestRule.setContent {
-            TddTheme {
-                SignupScreen()
-            }
-        }
-
         // name field tag
         composeTestRule.onNodeWithTag("field-name")
             .performTextInput("Mohammad Fayaz")
