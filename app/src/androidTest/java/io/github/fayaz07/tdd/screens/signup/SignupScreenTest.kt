@@ -11,6 +11,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performTextInput
 import io.github.fayaz07.tdd.ui.theme.TddTheme
+import io.github.fayaz07.testtags.screens.SignupScreenTestTags
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -37,7 +38,7 @@ class SignupScreenTest {
     @Test
     fun when_signup_screen_is_launched_should_show_name_field() {
         // name field tag
-        composeTestRule.onNodeWithTag("field-name")
+        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
             .assertIsDisplayed()
             .assertIsEnabled()
     }
@@ -45,7 +46,7 @@ class SignupScreenTest {
     @Test
     fun when_signup_screen_is_launched_should_show_email_field() {
         // email field tag
-        composeTestRule.onNodeWithTag("field-email")
+        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_EMAIL)
             .assertIsDisplayed()
             .assertIsEnabled()
     }
@@ -88,7 +89,7 @@ class SignupScreenTest {
     @Test
     fun on_signup_screen_user_can_perform_signup_operations() {
         // name field tag
-        composeTestRule.onNodeWithTag("field-name")
+        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
             .performTextInput("Mohammad Fayaz")
 
         composeTestRule.onNodeWithText("Mohammad Fayaz")
@@ -96,7 +97,7 @@ class SignupScreenTest {
             .assertIsFocused()
 
         // email field tag
-        composeTestRule.onNodeWithTag("field-email")
+        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_EMAIL)
             .performTextInput("fayaz@fayaz.com")
 
         composeTestRule.onNodeWithText("fayaz@fayaz.com")

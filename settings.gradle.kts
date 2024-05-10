@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Tdd"
 include(":app")
- 
+include(":testtags")
