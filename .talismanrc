@@ -1,10 +1,8 @@
 fileignoreconfig:
-- filename: app/src/main/res/xml/backup_rules.xml
-  checksum: f301105c8a8ea151b3f18ed0a7c5d6e60eb9f2d07010daa12117b1fbe72e56a0
 - filename: app/src/androidTest/java/io/github/fayaz07/tdd/TestUtils.kt
-  checksum: 634814dfadfba19a5b56fbfce719e69f86ec8541ff16184d856f6bab9ff457e3
+  checksum: 9228596aec7d36b24524e474428472fd897888fc4427fe857015dff67160b89e
 - filename: .idea/androidTestResultsUserPreferences.xml
-  checksum: 517e48965535df95f0b69f62b440fbbc1d46ccbe40fc89bf25c3f8b41d15ca63
-- filename: .idea/deploymentTargetDropDown.xml
-  checksum: 3d4ece60c30eb524e5d657c8b624db22e88d457f114922fbcaf05a9b1a6dc63e
+  checksum: d7052150ec1f0b8ce51919e9f7f77a6c30685385c9990ffcf9d950dabd5774fe
+- filename: testtags/src/main/java/io/github/fayaz07/testtags/screens/SignupScreenTestTags.kt
+  checksum: cb96b33ec930c054ec1e89dba257b3a08cc4117ca77addeab2bc43033b30ecd9
 version: ""

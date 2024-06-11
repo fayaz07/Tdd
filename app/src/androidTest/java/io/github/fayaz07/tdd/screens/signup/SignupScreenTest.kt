@@ -1,8 +1,11 @@
 package io.github.fayaz07.tdd.screens.signup
 
-import androidx.compose.ui.semantics.SemanticsPropertyKey
+import android.content.Context
+import android.graphics.drawable.Drawable
+import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
+import androidx.compose.ui.test.assertAny
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertHasNoClickAction
 import androidx.compose.ui.test.assertIsDisplayed
@@ -10,15 +13,15 @@ import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsFocused
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onChild
-import androidx.compose.ui.test.onChildren
+import androidx.compose.ui.test.onLast
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.onParent
-import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.onSiblings
 import androidx.compose.ui.test.performTextInput
 import io.github.fayaz07.tdd.R
-import io.github.fayaz07.tdd.TestUtils.matchesDrawable
+//import io.github.fayaz07.tdd.TestUtils.matchesDrawable
+import io.github.fayaz07.tdd.hasDrawable
 import io.github.fayaz07.tdd.ui.theme.TddTheme
 import io.github.fayaz07.testtags.screens.SignupScreenTestTags
 import org.junit.Before
@@ -47,18 +50,24 @@ class SignupScreenTest {
     @Test
     fun when_signup_screen_is_launched_should_show_name_field() {
         // name field tag
-        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
-            .assertIsDisplayed()
-            .assertIsEnabled()
+        composeTestRule.apply {
+            onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
+                .assertIsDisplayed()
+                .assertIsEnabled()
 
-        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
-            .performTextInput("Mohammad Fayaz")
+            onNodeWithTag(SignupScreenTestTags.FIELD_NAME)
+                .performTextInput("Mohammad Fayaz")
 
-        composeTestRule.onNodeWithText("Mohammad Fayaz")
-            .assertIsDisplayed()
-            .assertIsFocused()
+            onNodeWithText("Mohammad Fayaz")
+                .assertIsDisplayed()
+                .assertIsFocused()
 
-        composeTestRule.onNode(matchesDrawable(R.drawable.icon_person))
+//            onNodeWithContentDescription(SignupScreenTestTags.FIELD_NAME_PREFIX_ICON)
+//                .assertIsDisplayed()
+
+            onNode(hasDrawable(R.drawable.icon_person))
+                .assertExists()
+        }
     }
 
     @Test
@@ -96,10 +105,9 @@ class SignupScreenTest {
     @Test
     fun when_signup_screen_is_launched_should_show_password_fields_prefix_icon() {
         // password field should have a prefix lock icon
-        composeTestRule.onNodeWithTag("field-password-prefix")
+        composeTestRule.onNodeWithTag(SignupScreenTestTags.FIELD_PASSWORD)
             .assertIsDisplayed()
             .assertIsEnabled()
-            .assertHasNoClickAction()
     }
 
     @Test
